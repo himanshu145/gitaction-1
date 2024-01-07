@@ -4,14 +4,21 @@ jobs:
   first_job:
     runs-on: ubuntu-latest
     steps:
-      - name: Run a one-line script
-        run:  echo "Hello, world!"
-
       - name: checkout repo
         uses: actions/checkout@v4
+      
+      - name: Run a one-line script
+        run:  |
+              echo "Hello, world!"
+              ls -ltra
+              cat README.md
+      - name: Generate ASCII artwork
+        run: cowsay -f dragon "run for cover, I am a DRAGON .....RAWR" >> dragon.txt    
 
-      - name: list files
-        run: ls
-        
-      - name: read file
-        run: cat README.md
+
+
+      # - name: list files
+      #   run: ls
+
+      # - name: read file
+      #   run: cat README.md
